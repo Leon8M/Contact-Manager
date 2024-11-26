@@ -5,13 +5,21 @@ The Contact Manager App is a simple web application built using Flask. It allows
 
 ## Features
 Add a new contact with name, phone number, and relation.
+
 Edit existing contact details.
+
 Delete contacts.
+
 View a list of all saved contacts.
+
 Responsive and user-friendly interface.
+
 
 ## Technologies Used
 Backend: Flask (Python)
+
 Frontend: HTML, CSS
+
 Database: SQLite
+
 Styling: Custom CSS with responsive design

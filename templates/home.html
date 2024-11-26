@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Contact Manager</title>
+<link rel="stylesheet" href="/static/css/style.css">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Contacts</h1>
+
+    {% if contacts|length < 1 %}
+    <h4>You got no contacts</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Relation</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.relation }}</td>
+            <td>
+                <a href="/edit/{{ contact.id }}">Edit</a> |
+                <a href="/delete/{{ contact.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <form action="/" method="post">
+        <input type="text" name="name" placeholder="Name" id="name">
+        <input type="text" name="phone" placeholder="Phone Number" id="phone">
+        <label for="relation">Relation:</label>
+        <select name="relation" id="relation">
+            <option value="Family">Family</option>
+            <option value="Friend">Friend</option>
+            <option value="Colleague">Colleague</option>
+            <option value="Other">Other</option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Edit Contact</title>
+<link rel="stylesheet" href="/static/css/style.css">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Edit Contact</h1>
+
+    <form action="/edit/{{ contact.id }}" method="post">
+        <input type="text" name="name" placeholder="Name" id="name" value="{{ contact.name }}">
+        <input type="text" name="phone" placeholder="Phone Number" id="phone" value="{{ contact.phone }}">
+        <label for="relation">Relation:</label>
+        <select name="relation" id="relation">
+            <option value="Family" {% if contact.relation == 'Family' %}selected{% endif %}>Family</option>
+            <option value="Friend" {% if contact.relation == 'Friend' %}selected{% endif %}>Friend</option>
+            <option value="Colleague" {% if contact.relation == 'Colleague' %}selected{% endif %}>Colleague</option>
+            <option value="Other" {% if contact.relation == 'Other' %}selected{% endif %}>Other</option>
+        </select>
+        <button type="submit">Update</button>
+    </form>
+</div>
+{% endblock %}
